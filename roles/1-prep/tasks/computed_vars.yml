@@ -99,7 +99,7 @@
 - name: Turn on mysql if elgg or rachel enabled
   set_fact:
     mysql_enabled: True
-  when: elgg_enabled or rachel_enabled or owncloud_enabled or phpmyadmin_enabled or wordpress_enabled
+  when: elgg_enabled or rachel_enabled or nextcloud_enabled or phpmyadmin_enabled or wordpress_enabled
 
 - name: Turn on mongodb if sugarizer enabled
   set_fact:
