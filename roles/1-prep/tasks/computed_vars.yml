@@ -7,12 +7,8 @@
 - set_fact:
      xo_model: '{{ ansible_local["local_facts"]["xo_model"] }}'
      phplib_dir: '{{ ansible_local["local_facts"]["phplib_dir"] }}'
-     xsce_gui_ver: '{{ ansible_local["local_facts"]["xsce_gui_ver"] }}'
      xsce_base_ver: '{{ ansible_local["local_facts"]["xsce_base_ver"] }}'
-     xsce_menu_ver: '{{ ansible_local["local_facts"]["xsce_menu_ver"] }}'
      xsce_preload: '{{ ansible_local["local_facts"]["xsce_preload"] }}'
-     ansible_ver: '{{ ansible_local["local_facts"]["ansble_version"] }}'
-     squid_cache: '{{ ansible_local["local_facts"]["squid_cache"] }}'
 
 - name: Defaulting xsce_base_ver
   set_fact:
