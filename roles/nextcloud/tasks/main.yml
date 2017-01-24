@@ -2,7 +2,7 @@
 # but we only need to do this the first time
 
 - name: See if the nextcloud startup page exists
-  stat: path={{ owncloud_prefix }}/nextcloud/index.php
+  stat: path={{ nextcloud_prefix }}/nextcloud/index.php
   register: nextcloud_page
 
 - name: Install nextcloud package
