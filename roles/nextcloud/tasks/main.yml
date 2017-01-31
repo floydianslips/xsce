@@ -5,33 +5,6 @@
   stat: path={{ nextcloud_prefix }}/nextcloud/index.php
   register: nextcloud_page
 
-- name: Install nextcloud package
-  package: name={{ item }} 
-           state=present
-  with_items:
-      - curl
-      - nextcloud
-  tags:
-      - download
-  when: nextcloud_page.stat.exists is defined and not nextcloud_page.stat.exists
-
-- name: Remove nextcloud package
-  package: name=nextcloud
-           state=absent
-  when: nextcloud_page.stat.exists is defined and not nextcloud_page.stat.exists
-
-- name: remove config files for package
-  file: src=/etc/apache2/conf-available/nextcloud.conf
-        dest=/etc/apache2/conf-enabled/nextcloud.conf
-        state=absent
-
-- name: remove config files for package
-  file: path=/etc/apache2/conf-available/nextcloud.conf
-        state=absent
-
-#- name: Remove /etc/nextcloud to avoid confusion as we use the config in {{ nextcloud_prefix }}/config/
-#  file: path=/etc/nextcloud
-#        state=absent
 
 # but we use the tar file to get the latest version
 
@@ -42,7 +15,8 @@
   poll: 5
   tags:
     - download2
-
+  with_items:
+    -curl
 - name: Copy it to permanent location /opt
   unarchive: src={{ downloads_dir }}/{{ nextcloud_src_file }}  
              dest={{ nextcloud_prefix }}
