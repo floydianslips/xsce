@@ -14,9 +14,20 @@
   async: 300
   poll: 5
   tags:
-    - download2
-  with_items:
-    -curl
+    - download
+
+- name: Install list of packages  
+  apt: name={{ item }} state=installed
+  with_items:   
+    - libapache2-mod-php5
+    - php5-gd
+    - php5-json
+    - php5-mysql
+    - php5-curl
+    - php5-intl
+    - php5-mcrypt
+    - php5-imagick
+     
 - name: Copy it to permanent location /opt
   unarchive: src={{ downloads_dir }}/{{ nextcloud_src_file }}  
              dest={{ nextcloud_prefix }}
