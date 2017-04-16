@@ -9,6 +9,10 @@ varible: value
 # 4-server-options
 authserver_install: False
 authserver_enabled: False
+cups_install: False
+cups_enable: False
+samba_install: False
+samba_enable: False
 # 5-xoservices
 xo_services_install: True
 ejabberd_install: False
@@ -17,7 +21,8 @@ idmgr_install: False
 debian_schooltool_install: False
 # 6-generic-aps
 # 7-edu-aps
-pathagar_install: True
+pathagar_install: False
+pathagar_enable: False
 # 8-mgmat-tools
 sugar_stats_install: False
 ajenti_install: False
